@@ -165,7 +165,7 @@ export class AppComponent {
       return;
     }
 
-    let celsius: number; // Base unit for temperature conversion (Celsius)
+    let celsius: number; // Base unit for temperature conversion 
 
     // Convert the input value to Celsius based on the selected unit
     switch (this.temperatureUnit) {
