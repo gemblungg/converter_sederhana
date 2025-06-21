@@ -1,0 +1,69 @@
+.converter-container {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.converter-section {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.input-group input[type="number"],
+.input-group select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-group select {
+  min-width: 150px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.results p {
+  background-color: #e9f7ef;
+  border-left: 4px solid #4CAF50;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.results p:last-child {
+  margin-bottom: 0;
+}

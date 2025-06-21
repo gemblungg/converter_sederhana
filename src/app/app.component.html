@@ -1,0 +1,58 @@
+<div class="converter-container">
+  <h1>Unit Converter (Metric)</h1>
+
+  <div class="converter-section">
+    <h2>Distance</h2>
+    <div class="input-group">
+      <input type="number" [(ngModel)]="distanceValue" (input)="convertDistance()" placeholder="Enter value">
+      <select [(ngModel)]="distanceUnit" (change)="convertDistance()">
+        <option value="km">Kilometers (km)</option>
+        <option value="m">Meters (m)</option>
+        <option value="cm">Centimeters (cm)</option>
+        <option value="mm">Millimeters (mm)</option>
+      </select>
+    </div>
+    <div class="results">
+      <p *ngIf="distanceConverted.km !== null">Kilometers: {{ distanceConverted.km | number:'1.2-2' }} km</p>
+      <p *ngIf="distanceConverted.m !== null">Meters: {{ distanceConverted.m | number:'1.2-2' }} m</p>
+      <p *ngIf="distanceConverted.cm !== null">Centimeters: {{ distanceConverted.cm | number:'1.2-2' }} cm</p>
+      <p *ngIf="distanceConverted.mm !== null">Millimeters: {{ distanceConverted.mm | number:'1.2-2' }} mm</p>
+    </div>
+  </div>
+
+  <div class="converter-section">
+    <h2>Weight</h2>
+    <div class="input-group">
+      <input type="number" [(ngModel)]="weightValue" (input)="convertWeight()" placeholder="Enter value">
+      <select [(ngModel)]="weightUnit" (change)="convertWeight()">
+        <option value="kg">Kilograms (kg)</option>
+        <option value="g">Grams (g)</option>
+        <option value="mg">Milligrams (mg)</option>
+        <option value="ton">Tons (metric)</option>
+      </select>
+    </div>
+    <div class="results">
+      <p *ngIf="weightConverted.kg !== null">Kilograms: {{ weightConverted.kg | number:'1.2-2' }} kg</p>
+      <p *ngIf="weightConverted.g !== null">Grams: {{ weightConverted.g | number:'1.2-2' }} g</p>
+      <p *ngIf="weightConverted.mg !== null">Milligrams: {{ weightConverted.mg | number:'1.2-2' }} mg</p>
+      <p *ngIf="weightConverted.ton !== null">Tons: {{ weightConverted.ton | number:'1.2-2' }} ton</p>
+    </div>
+  </div>
+
+  <div class="converter-section">
+    <h2>Temperature</h2>
+    <div class="input-group">
+      <input type="number" [(ngModel)]="temperatureValue" (input)="convertTemperature()" placeholder="Enter value">
+      <select [(ngModel)]="temperatureUnit" (change)="convertTemperature()">
+        <option value="celsius">Celsius (°C)</option>
+        <option value="fahrenheit">Fahrenheit (°F)</option>
+        <option value="kelvin">Kelvin (K)</option>
+      </select>
+    </div>
+    <div class="results">
+      <p *ngIf="temperatureConverted.celsius !== null">Celsius: {{ temperatureConverted.celsius | number:'1.2-2' }} °C</p>
+      <p *ngIf="temperatureConverted.fahrenheit !== null">Fahrenheit: {{ temperatureConverted.fahrenheit | number:'1.2-2' }} °F</p>
+      <p *ngIf="temperatureConverted.kelvin !== null">Kelvin: {{ temperatureConverted.kelvin | number:'1.2-2' }} K</p>
+    </div>
+  </div>
+</div>
