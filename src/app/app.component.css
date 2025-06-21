@@ -1,69 +1,218 @@
+/* app.component.css */
+
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #3f51b5;
+  --text-color-dark: #333;
+  --text-color-light: #fefefe;
+  --bg-light: #f4f7f6;
+  --bg-white: #ffffff;
+  --border-light: #e0e0e0;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --focus-ring-color: rgba(76, 175, 80, 0.4);
+  --error-color: #d32f2f; /* Warna merah untuk error */
+  --error-bg-color: #ffebee; /* Latar belakang merah muda */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-light);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Penting: Pastikan `src/styles.css` memiliki ini untuk centering dan scrolling */
+/*
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+*/
+
 .converter-container {
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  max-width: 650px;
+  width: 100%;
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px var(--shadow-medium);
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 h1 {
   text-align: center;
-  color: #333;
-  margin-bottom: 25px;
+  color: var(--primary-color);
+  margin-bottom: 35px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .converter-section {
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  padding: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px; /* Mungkin perlu sedikit lebih banyak margin jika terlihat terlalu rapat */
+  box-shadow: 0 4px 15px var(--shadow-light);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.converter-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow-medium);
 }
 
 h2 {
-  color: #555;
+  color: var(--secondary-color);
   margin-top: 0;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  margin-bottom: 18px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 12px;
 }
 
 .input-group {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
   align-items: center;
 }
 
 .input-group input[type="number"],
-.input-group select {
+.input-group select,
+.input-group input[type="text"] { /* Tambahkan styling untuk input type="text" */
   flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 12px 15px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: var(--text-color-dark);
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.input-group input[type="number"]:focus,
+.input-group select:focus,
+.input-group input[type="text"]:focus { /* Tambahkan styling untuk input type="text" focus */
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px var(--focus-ring-color);
+  outline: none;
 }
 
 .input-group select {
-  min-width: 150px;
+  background-color: var(--bg-white);
   cursor: pointer;
-  background-color: #fff;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+.results {
+  background-color: #e8f5e9;
+  border-radius: 10px;
+  padding: 15px 20px;
+  border: 1px solid #c8e6c9;
 }
 
 .results p {
-  background-color: #e9f7ef;
-  border-left: 4px solid #4CAF50;
+  background-color: var(--bg-white);
+  border-left: 5px solid var(--primary-color);
   padding: 10px 15px;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  color: #333;
-  font-size: 0.95rem;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  color: var(--text-color-dark);
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  transition: all 0.2s ease;
 }
 
 .results p:last-child {
   margin-bottom: 0;
+}
+
+.results p strong {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+/* NEW STYLES: For Error Messages */
+.error-message {
+  color: var(--error-color); /* Menggunakan variabel warna error */
+  background-color: var(--error-bg-color); /* Menggunakan variabel latar belakang error */
+  border-left: 4px solid var(--error-color);
+  padding: 10px 15px;
+  margin-bottom: 15px; /* Memberi ruang di bawah pesan error */
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments (Tetap sama, akan berlaku untuk section baru juga) */
+@media (max-width: 768px) {
+  .converter-container {
+    margin: 20px 15px;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-group input[type="number"],
+  .input-group select,
+  .input-group input[type="text"] { /* Pastikan input type text juga responsif */
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .converter-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .converter-section {
+    padding: 15px;
+  }
+
+  .results p {
+    font-size: 0.9rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

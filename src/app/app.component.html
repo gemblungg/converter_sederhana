@@ -1,7 +1,5 @@
 <div class="converter-container">
-  <h1>Unit Converter (Metric)</h1>
-
-  <div class="converter-section">
+  <h1>Unit Converter (Metric & Number Base)</h1> <div class="converter-section">
     <h2>Distance</h2>
     <div class="input-group">
       <input type="number" [(ngModel)]="distanceValue" (input)="convertDistance()" placeholder="Enter value">
@@ -13,10 +11,10 @@
       </select>
     </div>
     <div class="results">
-      <p *ngIf="distanceConverted.km !== null">Kilometers: {{ distanceConverted.km | number:'1.2-2' }} km</p>
-      <p *ngIf="distanceConverted.m !== null">Meters: {{ distanceConverted.m | number:'1.2-2' }} m</p>
-      <p *ngIf="distanceConverted.cm !== null">Centimeters: {{ distanceConverted.cm | number:'1.2-2' }} cm</p>
-      <p *ngIf="distanceConverted.mm !== null">Millimeters: {{ distanceConverted.mm | number:'1.2-2' }} mm</p>
+      <p *ngIf="distanceConverted.km !== null">Kilometers: <strong>{{ distanceConverted.km | number:'1.2-2' }} km</strong></p>
+      <p *ngIf="distanceConverted.m !== null">Meters: <strong>{{ distanceConverted.m | number:'1.2-2' }} m</strong></p>
+      <p *ngIf="distanceConverted.cm !== null">Centimeters: <strong>{{ distanceConverted.cm | number:'1.2-2' }} cm</strong></p>
+      <p *ngIf="distanceConverted.mm !== null">Millimeters: <strong>{{ distanceConverted.mm | number:'1.2-2' }} mm</strong></p>
     </div>
   </div>
 
@@ -32,10 +30,10 @@
       </select>
     </div>
     <div class="results">
-      <p *ngIf="weightConverted.kg !== null">Kilograms: {{ weightConverted.kg | number:'1.2-2' }} kg</p>
-      <p *ngIf="weightConverted.g !== null">Grams: {{ weightConverted.g | number:'1.2-2' }} g</p>
-      <p *ngIf="weightConverted.mg !== null">Milligrams: {{ weightConverted.mg | number:'1.2-2' }} mg</p>
-      <p *ngIf="weightConverted.ton !== null">Tons: {{ weightConverted.ton | number:'1.2-2' }} ton</p>
+      <p *ngIf="weightConverted.kg !== null">Kilograms: <strong>{{ weightConverted.kg | number:'1.2-2' }} kg</strong></p>
+      <p *ngIf="weightConverted.g !== null">Grams: <strong>{{ weightConverted.g | number:'1.2-2' }} g</strong></p>
+      <p *ngIf="weightConverted.mg !== null">Milligrams: <strong>{{ weightConverted.mg | number:'1.2-2' }} mg</strong></p>
+      <p *ngIf="weightConverted.ton !== null">Tons: <strong>{{ weightConverted.ton | number:'1.2-2' }} ton</strong></p>
     </div>
   </div>
 
@@ -50,9 +48,30 @@
       </select>
     </div>
     <div class="results">
-      <p *ngIf="temperatureConverted.celsius !== null">Celsius: {{ temperatureConverted.celsius | number:'1.2-2' }} °C</p>
-      <p *ngIf="temperatureConverted.fahrenheit !== null">Fahrenheit: {{ temperatureConverted.fahrenheit | number:'1.2-2' }} °F</p>
-      <p *ngIf="temperatureConverted.kelvin !== null">Kelvin: {{ temperatureConverted.kelvin | number:'1.2-2' }} K</p>
+      <p *ngIf="temperatureConverted.celsius !== null">Celsius: <strong>{{ temperatureConverted.celsius | number:'1.2-2' }} °C</strong></p>
+      <p *ngIf="temperatureConverted.fahrenheit !== null">Fahrenheit: <strong>{{ temperatureConverted.fahrenheit | number:'1.2-2' }} °F</strong></p>
+      <p *ngIf="temperatureConverted.kelvin !== null">Kelvin: <strong>{{ temperatureConverted.kelvin | number:'1.2-2' }} K</strong></p>
     </div>
   </div>
+
+  <div class="converter-section">
+    <h2>Number Base</h2>
+    <div class="input-group">
+      <input type="text" [(ngModel)]="numBaseValue" (input)="convertNumBase()" placeholder="Enter value (e.g., 10, A5, 1010)">
+      <select [(ngModel)]="numBaseUnit" (change)="convertNumBase()">
+        <option value="decimal">Decimal (Base 10)</option>
+        <option value="binary">Binary (Base 2)</option>
+        <option value="hex">Hexadecimal (Base 16)</option>
+        <option value="bcd">BCD (Binary-Coded Decimal)</option>
+      </select>
+    </div>
+    <p *ngIf="numBaseError" class="error-message">{{ numBaseError }}</p>
+    <div class="results">
+      <p *ngIf="numBaseConverted.decimal !== null">Decimal: <strong>{{ numBaseConverted.decimal }}</strong></p>
+      <p *ngIf="numBaseConverted.binary !== null">Binary: <strong>{{ numBaseConverted.binary }}</strong></p>
+      <p *ngIf="numBaseConverted.hex !== null">Hexadecimal: <strong>{{ numBaseConverted.hex }}</strong></p>
+      <p *ngIf="numBaseConverted.bcd !== null">BCD: <strong>{{ numBaseConverted.bcd }}</strong></p>
+    </div>
+  </div>
+
 </div>
