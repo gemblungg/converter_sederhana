@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+/* src/styles.css */
+
+/* src/styles.css */
+
+html,body {
+  background: linear-gradient(to bottom right, #ffffff, #f0f4ff);
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Pastikan app-root bisa mengisi ruang, tapi tidak memaksakan overflow: hidden */
+app-root {
+  display: flex;
+  flex-direction: column; /* Ini penting jika konten app-root bisa melebihi tinggi layar */
+  min-height: 100vh; /* Pastikan app-root setidaknya setinggi viewport */
+  width: 100%; /* Pastikan app-root mengambil lebar penuh */
+  justify-content: center; /* Memusatkan secara horizontal */
+  align-items: center; /* Memusatkan secara vertikal */
+}
+
+/* Jika Anda menambahkan background-color ke body di app.component.css,
+   Anda mungkin juga ingin menambahkannya di sini untuk seluruh halaman.
+   Contoh:
+   body {
+     background-color: #f4f7f6; /* Warna latar belakang umum */
+   
+
+
